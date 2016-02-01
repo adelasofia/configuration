@@ -7,7 +7,7 @@
   "type": {
     "stackoverflow_question": {
       "description":"Threads from Stackoverflow",
-      "sys_type":"question",
+      "sys_type":"stackoverflow_thread",
       "sys_content_content-type" : "text/html",
       "persist" : true,
       "input_preprocessors": [],
@@ -22,7 +22,7 @@
     },
     "stackoverflow_customer": {
       "description":"Threads from Stackoverflow",
-      "sys_type":"customer_thread",
+      "sys_type":"stackoverflow_thread",
       "sys_content_content-type" : "text/html",
       "persist" : true,
       "input_preprocessors": [],
