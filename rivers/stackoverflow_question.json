@@ -2,9 +2,10 @@
   "type" : "remote",
   "remote" : {
     "urlGetDocuments"               : "https://api.stackexchange.com/2.2/search?key=*oqXg*yfHIdBzU)eLl8pMw((&order=asc&sort=activity&tagged={space}&site=stackoverflow&pagesize=100&fromdate={updatedAfter}&filter=!LfWKThW0g(DobcVscp0aEa",
+    "minGetDocumentsDelay"          : "1000",
     "updatedAfterFormat"            : "{unixEpoch}",
     "listDocumentsMode"             : "updateTimestamp",
-    "spacesIndexed"                 : "JBoss,JBoss7.x,Jboss5.x,JBoss6.x,JBoss-eap-6,JBoss-4.0.x,JBoss-3,jboss-as-7,wildfly,wildfly-8,vagrant,vagrantfile,vagrant-plugin,redhat,rhel,rhel5,rhel6,rhel7,rhel-scl,jbossfuse,camel,apache-camel,jbossmq",
+    "spacesIndexed"                 : "JBoss,JBoss7.x,JBoss5.x,JBoss6.x,JBoss-eap-6,JBoss-4.0.x,JBoss-3,jboss-as-7,wildfly,wildfly-8,linux-containers,docker,dockerfile,docker-registry,vagrant,vagrantfile,vagrant-plugin,redhat,rhel,rhel5,rhel6,rhel7,rhel-scl,jbossfuse,camel,apache-camel,jbossmq,JBoss-messaging,JBoss-amq,activemq,rhel-scl,openshift,openshift-client-tools,openshift-origin,openshift-cartridge,openshift-enterprise,openshift-php-cartridges,openshift-gears,openshift-web-console,openshift-env-variables,tomcat,tomcat7,tomcat6,tomcat8,JBoss-modules,JBoss-arquillian,JBoss-weld,jboss-tools,jboss-mdb,jbossws,jboss-esb,JBoss-cache,JBoss-portal,JBoss-seam,JBoss-logging,JBoss-forge,JBoss-web,JBoss-cli,JBoss-rules,embedded-jboss,JBoss-ne,drools,aerogear,cxf,karaf,apache-karaf,servicemix,apache-servicemix,apiman,jboss-arquillian,fabric8,forge,jboss-forge,hawtio,hibernate,infinispan,jbpm,jgroups,keycloak,osgi,nodyn,switchyard,torquebox,vert.x",
     "timeout"                       : "20s",
     "indexUpdatePeriod"             : "1h",
     "indexFullUpdatePeriod"         : "0",
