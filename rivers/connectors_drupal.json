@@ -1,0 +1,79 @@
+{
+  "type" : "remote",
+  "remote" : {
+    "urlGetDocuments"               : "http://stumpjumper.lab4.eng.bos.redhat.com:36613/drupal/connectors",
+    "listDocumentsMode"             : "simple",
+    "spacesIndexed"                 : "MAIN",
+    "timeout"                       : "20s",
+    "indexUpdatePeriod"             : "10m",
+    "maxIndexingThreads"            : 1
+  },
+  "index" : {
+    "index"                         : "data_jbossdeveloper_connector",
+    "type"                          : "jbossdeveloper_connector",
+    "remote_field_document_id"      : "nid",
+    "field_document_id"             : "sys_id",
+    "fields" : {
+      "sys_title"                   : { "remote_field" : "prep_sys_title" },
+      "sys_description"             : { "remote_field" : "prep_sys_description" },
+      "sys_content"                 : { "remote_field" : "prep_sys_content" },
+      "more_details_url"            : { "remote_field" : "prep_more_details_url" },
+      "target_product_1"            : { "remote_field" : "prep_target_product_1" },
+      "target_product_2"            : { "remote_field" : "prep_target_product_2" },
+      "target_product_3"            : { "remote_field" : "prep_target_product_3" },
+      "priority"                    : { "remote_field" : "prep_priority" },
+      "link_1_text"                 : { "remote_field" : "prep_link_1_text" },
+      "link_1_url"                  : { "remote_field" : "prep_link_1_url" },
+      "link_2_text"                 : { "remote_field" : "prep_link_2_text" },
+      "link_2_url"                  : { "remote_field" : "prep_link_2_url" },
+      "sys_url_view"                : { "remote_field" : "prep_sys_url_view" },
+      "sys_content_provider"        : { "remote_field" : "prep_sys_content_provider" },
+      "sys_content_id"              : { "remote_field" : "prep_sys_content_id" },
+      "sys_content_type"            : { "remote_field" : "jbossdeveloper_connector" },
+      "sys_id"                      : { "remote_field" : "prep_sys_id" },
+      "sys_type"                    : { "remote_field" : "connector" },
+      "sys_updated"                 : { "remote_field" : "prep_sys_updated" },
+      "sys_tags"                    : { "remote_field" : "prep_sys_tags" }
+    },
+    "preprocessors" : [
+      {
+        "name"     : "Remote id copy",
+        "class"    : "org.jboss.elasticsearch.tools.content.AddMultipleValuesPreprocessor",
+        "settings" : {
+          "prep_id_remote"            : "{nid}",
+          "prep_id"                   : "jbossdeveloper_connector-{nid}",
+          "prep_sys_title"            : "{title}",
+          "prep_more_details_url"     : "{field_connector_details_url}",
+          "prep_sys_content_id"       : "{field_connector_id}",
+          "prep_link_1_url"           : "{field_connector_link_1}",
+          "prep_link_1_text"          : "{field_connector_link_1_text}",
+          "prep_link_2_url"           : "{field_connector_link_2}",
+          "prep_link_2_text"          : "{field_connector_link_2_text}",
+          "prep_sys_content"          : "{field_connector_long_description}",
+          "prep_sys_description"      : "{field_connector_short_descriptio}",
+          "prep_priority"             : "{field_connector_priority}",
+          "prep_target_product_1"     : "{field_connector_target_product_1}",
+          "prep_target_product_2"     : "{field_connector_target_product_2}",
+          "prep_target_product_3"     : "{field_connector_target_product_3}"
+        }
+      },
+      {
+        "name"     : "Body HTML stripper",
+        "class"    : "org.jboss.elasticsearch.tools.content.StripHtmlPreprocessor",
+        "settings" : {
+          "source_field" : "field_description",
+          "target_field" : "prep_content_plaintext"
+        }
+      },
+      {
+        "name"     : "Updated filler",
+        "class"    : "org.jboss.elasticsearch.tools.content.AddCurrentTimestampPreprocessor",
+        "settings" : { "field" : "prep_sys_updated" }
+      }
+
+    ]
+  },
+  "activity_log" : {
+    "index":"stats_jbossdeveloper_connector_river"
+  }
+}

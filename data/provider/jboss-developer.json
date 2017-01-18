@@ -466,6 +466,10 @@
       "index": {
         "name":"data_jbossdeveloper_connector",
         "type":"jbossdeveloper_connector"
+      },
+      "indexer" : {
+        "type" : "elasticsearch-river-remote",
+        "name" : "connectors_drupal"
       }
     },
       "jbossdeveloper_event": {
